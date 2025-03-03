@@ -21,7 +21,7 @@ function colorZebra($zebra) {
         <span class="ml-2">Home</span>
     </a>
 
-    <a href="{{ route('home') }} "
+    <a href="{{ route('productos') }} "
        class="flex text-black items-center justify-center p-2 lg:p-4 w-full flex-grow" style="background:<?php
     $zebra++;
     echo colorZebra($zebra);
