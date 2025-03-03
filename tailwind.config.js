@@ -21,10 +21,11 @@ export default {
                 "84v": "84vh"
             },
             colors:{
-                "header":"#d0778f",
-                "nav":"#ffd4dd",
-                "footer":"#2c8098",
+                "header":"#769ecb",
+                "footer":"#55779e",
                 "main":"#fcfcfc",
+                "navZebra-1":"#FCE3C0",
+                "navZebra-2":"#EDD4B0",
             }
         },
     },
