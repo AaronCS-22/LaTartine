@@ -51,7 +51,7 @@
         @auth
             <div tabindex="0" role="button" class="dropdown dropdown-end">
                 <div class="flex flex-row mr-5">
-                    <div class="btn btn-ghost btn-circle avatar">
+                    <div class="btn btn-ghost btn-circle avatar ring ring-offset-1">
                         <div class="w-14 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
@@ -133,7 +133,7 @@
         @auth
             <div tabindex="0" role="button" class="dropdown dropdown-end">
                 <div class="flex flex-row mr-5">
-                    <div class="btn btn-ghost btn-circle avatar">
+                    <div class="btn btn-ghost btn-circle avatar ring ring-offset-1"">
                         <div class="w-14 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
