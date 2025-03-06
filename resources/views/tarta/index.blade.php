@@ -1,7 +1,7 @@
 <x-layouts.layout title="Productos">
     <div class="p-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
         @foreach($tartas as $tarta)
-            <div class="card w-full shadow-sm">
+            <div class="card w-full shadow-lg" style="background: linear-gradient(135deg, rgb(255,252,243) 0%, rgb(255,231,179) 100%)">
                 <figure class="w-124 h-60 overflow-hidden">
                     <img
                         src="{{$tarta->imagen}}"
