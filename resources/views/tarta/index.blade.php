@@ -1,7 +1,17 @@
-<x-layouts.layout title="Productos">
-    <div class="p-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+<x-layouts.layout title="Nuestras tartas">
+    <h1>Nuestras tartas</h1>
+    <div class="p-16">
+    @auth
+        <a class="w-full text-[16px] text-center mb-6 btn btn-warning" href="{{route("tartas.create")}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            Añadir tarta
+        </a>
+    @endauth
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
         @foreach($tartas as $tarta)
-            <div class="card w-full shadow-lg" style="background: linear-gradient(135deg, rgb(255,252,243) 0%, rgb(255,231,179) 100%)">
+            <div class="card w-full shadow-lg" style="background: linear-gradient(135deg, #{{$tarta->color}}4c 0%, #{{$tarta->color}}8a 100%)">
                 <figure class="w-124 h-60 overflow-hidden">
                     <img
                         src="{{$tarta->imagen}}"
@@ -25,5 +35,6 @@
                 </div>
             </div>
         @endforeach
+    </div>
     </div>
 </x-layouts.layout>

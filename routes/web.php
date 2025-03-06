@@ -9,11 +9,8 @@ Route::get('/', function () {
 })
 ->name("home");
 
-Route::resource("productos", TartaController::class);
-/*Route::get('/tarta', function () {
-    return view('tarta/ppal');
-})
-    ->name("tarta");*/
+Route::resource("tartas", TartaController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

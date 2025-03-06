@@ -43,12 +43,26 @@ class TartaFactory extends Factory
             "https://content-cocina.lecturas.com/medio/2021/07/17/paso-a-paso-para-hacer-tarta-san-marcos-resultado-final_db72b95e_1280x720.jpg",
         ];
 
+        $color = [
+            "E90808",
+            "6B4830",
+            "ACE32D",
+            "FCEB30",
+            "ED4276",
+            "FFF5D6",
+            "6B6B6B",
+            "C9A06C",
+            "F5A842",
+            "FFE7B3",
+        ];
+
         $aleatorio = rand(0,9);
 
         return [
             'nombre' => $nombres[$aleatorio],
             'precio' => $this->faker->randomFloat(2, 5, 30),
             'imagen' => $imagenes[$aleatorio],
+            'color' => $color[$aleatorio],
             'ingredientes' => $this->faker->text(),
             'alergenos' => $this->faker->boolean(),
         ];

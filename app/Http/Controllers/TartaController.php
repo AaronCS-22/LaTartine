@@ -11,4 +11,9 @@ class TartaController extends Controller
         $tartas = Tarta::all();
         return view('tarta.index', ['tartas' => $tartas]);
     }
+
+    public function create()
+    {
+        return view("tarta.crear");
+    }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->float('precio');
             $table->string('ingredientes')->nullable();
             $table->string('imagen');
+            $table->string('color');
             $table->boolean('alergenos')->default(false);
             $table->timestamps();
         });
