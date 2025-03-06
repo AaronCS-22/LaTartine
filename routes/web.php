@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TartaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,10 +9,11 @@ Route::get('/', function () {
 })
 ->name("home");
 
-Route::get('/productos', function () {
-    return view('productos/ppal');
+Route::resource("productos", TartaController::class);
+/*Route::get('/tarta', function () {
+    return view('tarta/ppal');
 })
-    ->name("productos");
+    ->name("tarta");*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

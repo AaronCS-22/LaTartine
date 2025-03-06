@@ -1,0 +1,15 @@
+.svg-delete {
+    transition: color 0.2s ease;  /* Suaviza el cambio de color */
+}
+
+.svg-delete:hover {
+    color: red;  /* Cambia el color al poner el ratón encima */
+}
+
+.svg-edit {
+    transition: color 0.2s ease;  /* Suaviza el cambio de color */
+}
+
+.svg-edit:hover {
+    color: #249505;  /* Cambia el color al poner el ratón encima */
+}

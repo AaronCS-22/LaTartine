@@ -1,3 +1,7 @@
+/* Imports */
+@import "svg.css";
+
+/* Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
