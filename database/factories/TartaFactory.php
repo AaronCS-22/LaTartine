@@ -31,9 +31,9 @@ class TartaFactory extends Factory
         ];
 
         $imagenes = [
-            "https://www.infobae.com/resizer/v2/52E6H6YM2NHAHHAR6S7SL47SEM.jpg?auth=297e571a58ee99c362d9f16fab0b2dafa6ffba5a019ccd898a7c4741312ce74f&smart=true&width=1200&height=675&quality=85",
+            "https://assets.elgourmet.com/wp-content/uploads/2023/03/red-v_kvUtb7ixJqMHo63e5OnXWyjZsfV2zP.png",
             "https://www.cocinatis.com/archivos/202207/CTIS0277-Tarta-tres-chocolates-sin-nata_desktop_horizontal_full_width.jpg",
-            "https://yhoyquecomemos.com/wp-content/uploads/2017/01/tarta-de-manzana-receta-1.jpg",
+            "https://pazodevilane.com/wp-content/uploads/2020/10/tarta-de-manzana-port.jpg",
             "https://alpina.com/media/mageplaza/blog/post/t/a/tarta-de-queso-preparala-con-estos-sencillos-trucos.jpg",
             "https://i.ytimg.com/vi/3wmLon0_7yI/maxresdefault.jpg",
             "https://i.ytimg.com/vi/vwx3RPq5APM/maxresdefault.jpg",

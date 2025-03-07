@@ -16,4 +16,13 @@ class TartaController extends Controller
     {
         return view("tarta.crear");
     }
+
+    public function destroy(Tarta $tarta)
+    {
+        $tarta->delete();
+        session()->flash("status","\"$tarta->nombre\" ha sido eliminado de la base de datos.");
+        return redirect(route("tartas.index"));
+
+        //
+    }
 }
