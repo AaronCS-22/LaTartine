@@ -38,7 +38,7 @@ class TartaController extends Controller
 
     public function edit(Tarta $tarta)
     {
-        return view("tartas.edit",["tarta" => $tarta]);
+        return view("tarta.editar",["tarta" => $tarta]);
     }
     public function update(Request $request, Tarta $tarta)
     {

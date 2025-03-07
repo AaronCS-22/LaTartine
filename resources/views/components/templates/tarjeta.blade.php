@@ -11,7 +11,7 @@
         <p>{!! $descripcion !!}</p>
         @auth
             <div class="card-actions justify-end">
-                <a href= {{route("$tipoTarjeta.create")}}>
+                <a href= {{route($tipoTarjeta.".edit", $id)}}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          class="size-8 svg-edit">
                         <path
