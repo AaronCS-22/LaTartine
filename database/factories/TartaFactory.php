@@ -44,16 +44,16 @@ class TartaFactory extends Factory
         ];
 
         $color = [
-            "E90808",
-            "6B4830",
-            "ACE32D",
-            "FCEB30",
-            "ED4276",
-            "FFF5D6",
-            "6B6B6B",
-            "C9A06C",
-            "F5A842",
-            "FFE7B3",
+            "#E90808",
+            "#6B4830",
+            "#ACE32D",
+            "#FCEB30",
+            "#ED4276",
+            "#FFF5D6",
+            "#6B6B6B",
+            "#C9A06C",
+            "#F5A842",
+            "#FFE7B3",
         ];
 
         $aleatorio = rand(0,9);

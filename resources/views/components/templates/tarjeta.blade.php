@@ -1,5 +1,5 @@
 <div class="card w-full shadow-lg"
-     style="background: linear-gradient(135deg, #{{$color ?? 'ffffff'}}4c 0%, #{{$color ?? 'ffffff'}}8a 100%)">
+     style="background: linear-gradient(135deg, {{$color ?? 'ffffff'}}4c 0%, {{$color ?? 'ffffff'}}8a 100%)">
     <figure class="w-124 h-60 overflow-hidden">
         <img
             src="{{$imagen ?? 'https://media.istockphoto.com/id/1318572434/photo/cheesecake-in-the-oven-after-baking-step-by-step-recipe-from-the-internet.jpg?s=612x612&w=0&k=20&c=0P0geH3HQJl95F_O5U1GREtIvWdl0Q4k9uVd3qyUEw8='}}"
@@ -11,7 +11,7 @@
         <p>{!! $descripcion !!}</p>
         @auth
             <div class="card-actions justify-end">
-                <form>
+                <a href= {{route("$tipoTarjeta.create")}}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                          class="size-8 svg-edit">
                         <path
@@ -19,7 +19,7 @@
                         <path
                             d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z"/>
                     </svg>
-                </form>
+                </a>
                 <form onsubmit=event.preventDefault() id="formulario{{$id}}"
                       action="{{route($tipoTarjeta.".destroy" ,$id)}}" method="POST">
                     @method("DELETE")

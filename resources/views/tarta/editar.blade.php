@@ -1,15 +1,9 @@
+@@ -0,0 +1,33 @@
 <x-layouts.layout>
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
         <!-- Es el tocken CSRF que envia correctamente el formulario -->
-
-    {{--
-        "nombre"=>"required|string|min:3|max:25",
-            "precio"=>"required|numeric|min:0.01|max:999.99",
-            "imagen"=>"string|nullable",
-            "color"=>"string|nullable",
-            "ingredientes"=>"required|string|min:3|max:2500",
-            "alergenos"=>"boolean",
-    --}}
-        <form action="{{ route('tartas.store') }}" method="POST">
+        <form action="{{ route('tartas.update', $tarta->id) }}" method="POST">
+            @method("PUT")
             @csrf
             <div class="mb-4">
                 <label class="label">Nombre</label>
@@ -54,6 +48,8 @@
                 <div class="text-red-600 text-sm">{{$message}}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn bg-green-600 text-white w-full">Guardar</button>
+            <button type="submit" class="btn bg-green-600 text-white w-full">Actualizar</button>
+            <button type="submit" class="btn bg-blue-600 text-white w-full">Cancelar </button>
         </form>
+    </div>
 </x-layouts.layout>
