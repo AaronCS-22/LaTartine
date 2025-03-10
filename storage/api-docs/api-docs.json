@@ -1,0 +1,90 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Tartas",
+        "description": "Documentación de la API de Tartas con Swagger",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/tartas": {
+            "get": {
+                "tags": [
+                    "Tartas"
+                ],
+                "summary": "Lista todas las tartas",
+                "operationId": "c8f2caa9bf6a557146aa45d52cd99a72",
+                "responses": {
+                    "200": {
+                        "description": "Lista de tartas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Tarta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Tarta": {
+                "title": "Tarta",
+                "description": "Modelo de una tarta",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Tarta de Chocolate"
+                    },
+                    "precio": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 12.5
+                    },
+                    "ingredientes": {
+                        "type": "string",
+                        "example": "Chocolate, Harina, Azúcar"
+                    },
+                    "imagen": {
+                        "type": "string",
+                        "example": "http://localhost/storage/tarta.jpg"
+                    },
+                    "color": {
+                        "type": "string",
+                        "example": "Marrón"
+                    },
+                    "alergenos": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-10 14:00:00"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-10 14:00:00"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Tartas",
+            "description": "Endpoints para gestionar tartas"
+        }
+    ]
+}
