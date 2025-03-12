@@ -1,4 +1,8 @@
 <x-layouts.layout title="Chat de Compra de Tartas">
+    <div class="pagina-principal-imagen">
+        <div class="pagina-principal-imagen-texto">Contacto</div>
+        <div class="scroll-icon">&#94;</div>
+    </div>
     <div class="contenido">
         <!-- Cliente interesado en comprar -->
         <div class="chat chat-start">
