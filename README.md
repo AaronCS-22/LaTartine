@@ -1,66 +1,175 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Creación del proyecto
+```bash
+laravel new ej1
+```
+### Tipo de opciones a elegir:
+- **Would you like to install a starter kit?:** `Laravel Breeze`
+- **Which Breeze stack would you like to install?:** `Blade with Alpine`
+- **Would you like dark mode support?:** `No`
+- **Which testing framework do you prefer?:** `PHPUnit`
+- **Which database will your application use?:** `SQLite`
+- **Would you like to run the default database migrations?:** `Yes`
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Importación DaisyUI
 
-## About Laravel
+```bash
+npm i -D daisyui@latest
+```
+## Creación de ficheros
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```shell
+📂
+└── 📂 resources
+    ├── 📂 views
+    │   └── 📂 components
+    │       └── 📂 layouts
+    │       │   ├── 📄 footer.blade.php
+    │       │   ├── 📄 header.blade.php
+    │       │   ├── 📄 layout.blade.php
+    │       │   └── 📄 nav.blade.php
+    │       └── 📂 templates
+    │           └── 📄 navComponent.blade.php
+    └── 📄 home.blade.php
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+***IMPORTANTE***: Redirigir la ruta de la página principal por defecto al `main.blade.php` desde el archivo `routes/web.php`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Antes:
+```php
+Route::get('/', function () {
+    return view('welcome');
+});
+```
+### Después:
+```php
+Route::get('/', function () {
+    return view('home');
+});
+```
 
-## Learning Laravel
+## HomeController
+Creamos el controlador ```HomeController.php``` con el siguiente comando en el terminal:
+```bash
+php artisan make:Controller HomeController
+```
+Añadimos el siguiente código dentro del fichero creado:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```php
+class HomeController extends Controller
+{
+    public function index(){
+        return view('home');
+    }
+}
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+En ```web.php```, añadimos la siguiente línea:
+```php
+ROUTE::get('/', [HomeController::class, 'index'])
+-> name('home');
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Autenticación
+### Cargar layout
+En la carpeta ```resources/views/auth``` moficiar todos los ficheros de autenticación (```login.blade.php``` y ```register.blade.php```, etc.) para añadirles el layout que hemos creado.
+### Decoración
+Dentro de cada ```<x-layouts.layout>``` de los ficheros, englobar el código de la siguiente forma:
+```bladehtml
+<x-layouts.layout>
+    <div class="flex flex-row justify-center items-center min-h-full bg-gray-300">
+        <div class="bg-white p-4 rounded-xl">
+            [...]
+            RESTO DEL CÓDIGO
+            [...]
+        </div>
+    </div>
+</x-layouts.layout>
+```
+### Cambiar rutas
+Al registrarse, iniciar sesión, etc., se envía al usuario a dashboard.blade.php.
 
-## Laravel Sponsors
+Para corregir el problema, debemos entrar en la carpeta ```app/Http/Controllers``` y modificar en todos los ficheros la ruta ``dashboard`` por la ruta ```main``` (incluyendo los ficheros dentro de la carpeta ```Auth```.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Por ejemplo, en ```ProfileController.php```, hay que cambiar la siguiente línea:
 
-### Premium Partners
+```php
+return Redirect::to('dashboard');
+```
+por:
+```php
+return Redirect::to('home');
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Una vez realizado los cambios, se puede eliminar el fichero ```dashboard.blade.php``` junto con su ruta en ```web.php```
 
-## Contributing
+## Base de datos
+Para la base de datos, es necesario ejecutar los siguientes comandos.
+### Controller
+Genera un controlador llamado ```TartaController```. Los controladores en Laravel son responsables de manejar la lógica de negocio detrás de las rutas y de interactuar con los modelos para procesar las solicitudes del usuario. En este caso, el controlador se encargará de manejar todo lo relacionado con la entidad ```Tarta```, como la creación, actualización, visualización y eliminación de tartas.
+```shell
+php artisan make:controller TartaController
+```
+### Migration
+Genera un archivo de migración llamado ```create_tartas_table```. Las migraciones son una forma de versionar y gestionar la estructura de la base de datos. En este caso, la migración se usará para crear la tabla tartas en la base de datos, especificando las columnas y tipos de datos necesarios para almacenar la información de las tartas.
+```shell
+php artisan make:migration create_tartas_table
+```
+### Factory
+Crea un archivo de fábrica llamado ```TartaFactory```. Las fábricas en Laravel se utilizan para generar datos de prueba o ficticios. El archivo ```TartaFactory``` será utilizado para crear instancias de tartas con datos aleatorios o predefinidos para facilitar el desarrollo o las pruebas.
+```shell
+php artisan make:factory TartaFactory
+```
+### Seeder
+Crea un archivo de sembrador llamado ```TartaSeeder```. Los sembradores permiten llenar la base de datos con datos iniciales o de prueba. El archivo ```TartaSeeder``` se utilizará para insertar registros de tartas en la tabla tartas utilizando la fábrica ```TartaFactory``` o datos definidos manualmente.
+```shell
+php artisan make:seeder TartaSeeder
+```
+### Model
+Genera un modelo llamado ```Tarta```. El modelo representa la tabla tartas en la base de datos y permite interactuar con ella. Laravel facilita las operaciones ```CRUD``` (crear, leer, actualizar y eliminar) mediante este modelo, que se encarga de gestionar la lógica relacionada con la base de datos para la entidad ```Tarta```.
+```shell
+php artisan make:model Tarta
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## API
+### L5 Swagger
+Se descarga y se instala la librería de Swagger para Laravel.
+```shell
+composer require darkaonline/l5-swagger
+```
+Una vez instalada la librería, se publica los archivos de configuración y recursos.
+```shell
+php artisan vendor:publish --provider="L5Swagger\L5SwaggerServiceProvider"
+```
+A continuación, se generar la documentación de Swagger.
+```shell
+php artisan l5-swagger:generate
+```
+### Controlador
+Creamos la API para la aplicación con el siguiente comando:
+```shell
+php artisan make:controller Api/TartaApiController
+```
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Dentro de TartaApiController, es necesario añadir el Swagger instalado:
+```php
+/**
+* @OA\Get(
+*     path="/api/tartas",
+*     tags={"Tartas"},
+*     summary="Lista todas las tartas",
+*     @OA\Response(
+*         response=200,
+*         description="Lista de tartas",
+*         @OA\JsonContent(
+*             type="array",
+*             @OA\Items(ref="#/components/schemas/Tarta")
+*         )
+*     )
+* )
+*/
+```
+### Acceso a la API
+Para acceder a la API, es necesario acceder al siguiente enlace:
+```http request
+localhost:8000/api/tartas
+```
