@@ -7,12 +7,12 @@
 
             <!-- Instrucciones -->
             <div class="mb-6 text-sm text-gray-300">
-                {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+                {{ __('Esta es una zona segura de la aplicación. Por favor, confirma tu contraseña antes de continuar.') }}
             </div>
 
             <!-- Campo de contraseña -->
             <div class="mb-6">
-                <x-input-label for="password" :value="__('Password')" class="text-white text-lg" />
+                <x-input-label for="password" :value="__('Contraseña')" class="text-white text-lg" />
 
                 <x-text-input id="password" class="block mt-1 w-full bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                               type="password"
@@ -25,7 +25,7 @@
             <!-- Botón de confirmación -->
             <div class="flex justify-end mt-4">
                 <x-primary-button class="w-full bg-green-600 text-white hover:bg-green-700 transition duration-300">
-                    {{ __('Confirm') }}
+                    {{ __('Confirmar') }}
                 </x-primary-button>
             </div>
         </form>

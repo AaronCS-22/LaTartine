@@ -7,15 +7,15 @@
 
             <!-- Instrucciones -->
             <div class="mb-6 text-sm text-gray-300">
-                {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+                {{ __('¿Olvidaste tu contraseña? No hay problema. Solo déjanos tu dirección de correo electrónico y te enviaremos un enlace para restablecer la contraseña que te permitirá elegir una nueva.') }}
             </div>
 
-            <!-- Session Status -->
+            <!-- Estado de la sesión -->
             <x-auth-session-status class="mb-4" :status="session('status')" />
 
             <!-- Campo de Email -->
             <div class="mb-6">
-                <x-input-label for="email" :value="__('Email')" class="text-white text-lg" />
+                <x-input-label for="email" :value="__('Correo electrónico')" class="text-white text-lg" />
 
                 <x-text-input id="email" class="block mt-1 w-full bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                               type="email" name="email" :value="old('email')" required autofocus />
@@ -26,7 +26,7 @@
             <!-- Botón de enviar enlace para restablecer la contraseña -->
             <div class="flex justify-end mt-4">
                 <x-primary-button class="w-full bg-green-600 text-white hover:bg-green-700 transition duration-300">
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Enviar enlace para restablecer la contraseña') }}
                 </x-primary-button>
             </div>
         </form>
