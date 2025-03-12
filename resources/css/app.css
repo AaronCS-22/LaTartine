@@ -5,3 +5,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pagina-principal-imagen {
+    background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/15/36/1b/definitivamente-se-llevaron.jpg?w=1000&h=-1&s=1');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: inherit;
+    height: 30em;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pagina-principal-imagen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.pagina-principal-imagen-texto {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 5em;
+}
+
+.contenido {
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #d8524e;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-bottom: 15px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+    font-size: 1.2rem;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.scroll-icon {
+    font-size: 5em;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
+    cursor: default;
+    animation: moveIcon 2s infinite ease-in-out;
+}
+
+@keyframes moveIcon {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+

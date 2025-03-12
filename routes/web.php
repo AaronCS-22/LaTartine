@@ -9,6 +9,11 @@ Route::get('/', function () {
 })
 ->name("home");
 
+Route::get('/contacto', function () {
+    return view('contacto');
+})
+    ->name("contacto");
+
 Route::resource("/tartas", TartaController::class);
 
 Route::middleware('auth')->group(function () {

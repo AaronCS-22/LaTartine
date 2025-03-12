@@ -1,5 +1,9 @@
 <x-layouts.layout title="Nuestras tartas">
-    <h1>Nuestras tartas</h1>
+    <div class="pagina-principal-imagen">
+        <div class="pagina-principal-imagen-texto">Nuestras tartas</div>
+        <div class="scroll-icon">&#94;</div>
+    </div>
+
     <div class="p-16">
         @if (session()->has("status"))
             <div role="alert" class="alert w-full alert-success mb-2">

@@ -23,7 +23,7 @@ export default {
             colors:{
                 "header":"#141A54",
                 "footer":"#141A54",
-                "main":"#fcfcfc",
+                "main":"#1c1c1c",
             }
         },
     },
